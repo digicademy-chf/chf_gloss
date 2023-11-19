@@ -1,18 +1,17 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title'          => 'DA Ingest',
+    'title'          => 'CHF Gloss',
     'description'    => 'Provide ingest services for research data in TYPO3',
     'category'       => 'misc',
     'author'         => 'Jonatan Jalle Steller',
     'author_email'   => 'jonatan.steller@adwmainz.de',
     'author_company' => 'Academy of Sciences and Literature Mainz',
-    'state'          => 'alpha',
-    'version'        => '0.0.1',
+    'state'          => 'beta',
+    'version'        => '0.6.0',
     'constraints'    => [
         'depends'   => [
-            'typo3' => '12.0.0-12.4.99',
-            'php'   => '8.1.0-8.2.99'
+            'typo3' => '12.0.0-12.99.99'
         ],
         'conflicts' => [
         ],
@@ -21,7 +20,7 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'autoload'       => [
         'psr-4' => [
-           'Digicademy\\DAIngest\\' => 'Classes/'
+           'Digicademy\\CHFGloss\\' => 'Classes/'
         ]
      ]
 ];

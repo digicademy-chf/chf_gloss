@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: DA Ingest
+title: CHF Gloss
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -10,18 +10,26 @@ authors:
     email: jonatan.steller@adwmainz.de
     affiliation: Academy of Sciences and Literature Mainz
     orcid: 'https://orcid.org/0000-0002-5101-5275'
+  - name: "CHF Gloss contributors"
 repository-code: >-
-  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-ingest
+  https://github.com/digicademy-chf/chf_gloss
 abstract: >-
-  Longer description.
+  The extension provides a data model for glossary data,
+  as part of the Cultural Heritage Framework (CHF). It can
+  be included in various data resources across the CHF. A
+  glossary consists mainly of a central resource and its
+  entries. The latter may annotate a set of words or
+  abbreviations. Their definitions may only contain minimal
+  formatting. Authorship can be attributed to the entire
+  resource instead of individual entries.
 keywords:
   - TYPO3
-  - Ingest
-  - Import
+  - Glossary
+  - Definition
   - Data
   - Research
   - Academia
   - Academic
 license: GPL 3
-version: 0.0.1
-date-released: '2023-04-12'
+version: 0.6.0
+date-released: '2023-11-27'

@@ -1,26 +1,29 @@
 {
-    "name": "digicademy/da-ingest",
+    "name": "digicademy/chf_gloss",
     "type": "typo3-cms-extension",
-    "description": "Provide ingest services for research data in TYPO3",
+    "description": "Provide glossaries for research data in TYPO3",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
             "email": "jonatan.steller@adwmainz.de",
             "role": "Developer",
             "homepage": "https://www.adwmainz.de"
+        },
+        {
+            "name": "CHF Gloss contributors"
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-ingest",
+    "homepage": "https://extensions.typo3.org/extension/chf_gloss",
     "support": {
-        "issues": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-ingest/-/issues",
-        "source": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-ingest",
-        "docs": "https://adwmainz.pages.gitlab.rlp.net/digicademy/t3xdev/da-ingest"
+        "issues": "https://github.com/digicademy-chf/chf_gloss/issues",
+        "source": "https://github.com/digicademy-chf/chf_gloss",
+        "docs": "https://digicademy-chf.github.io/chf_gloss"
     },
     "keywords": [
         "TYPO3",
-        "Ingest",
-        "Import",
+        "Glossary",
+        "Definition",
         "Data",
         "Research",
         "Academia",
@@ -31,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Digicademy\\DAIngest\\": "Classes/"
+            "Digicademy\\CHFGloss\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "da_ingest"
+            "extension-key": "chf_gloss"
         }
     }
 }

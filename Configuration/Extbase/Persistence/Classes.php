@@ -22,6 +22,6 @@ return [
     Digicademy\CHFBase\Domain\Model\AbstractResource::class => [
         'subclasses' => [
             'glossaryResource' => Digicademy\CHFGloss\Domain\Model\GlossaryResource::class,
-        ]
+        ],
     ],
 ];

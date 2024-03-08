@@ -31,7 +31,8 @@
     ],
     "require": {
         "typo3/cms-core": "^13",
-        "digicademy/chf_base": "dev-main@dev"
+        "typo3/cms-fluid-styled-content": "^13",
+        "digicademy/chf_base": "@dev"
     },
     "autoload": {
         "psr-4": {

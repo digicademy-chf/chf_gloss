@@ -36,10 +36,10 @@ This is a pre-release version. The following steps are required for the software
 - Embedded metadata
 - First set of serialisations
 - Search configuration
-- Generic Zotero import
 - Add API documentation
 
 **Beyond 2.0.0**
 
 - Add testing
+- Generic import
 - Additional serialisations

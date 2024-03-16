@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Gloss for TYPO3.
@@ -7,6 +6,8 @@ declare(strict_types=1);
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
+
+defined('TYPO3') or die();
 
 /**
  * Rules to map object inheritance to TCA tables

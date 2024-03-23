@@ -59,7 +59,7 @@ defined('TYPO3') or die();
    'tx_chfbase_domain_model_resource',
    'hiddenUuid,typeUri,titleLangCode,description,sameAs,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,publicationDateRevisionNumberRevisionDate,editorialNote,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileCollections,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,',
    'glossaryResource'
 );

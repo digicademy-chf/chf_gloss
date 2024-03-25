@@ -22,10 +22,8 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class GlossaryEntryRepository extends Repository
 {
     protected $defaultOrderings = [
-        'sorting'          => QueryInterface::ORDER_ASCENDING,
-        'itemTitle'        => QueryInterface::ORDER_ASCENDING,
-        'publicationTitle' => QueryInterface::ORDER_ASCENDING,
-        'seriesTitle'      => QueryInterface::ORDER_ASCENDING,
-        'meetingTitle'     => QueryInterface::ORDER_ASCENDING,
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'term'    => QueryInterface::ORDER_ASCENDING,
+        'type'    => QueryInterface::ORDER_ASCENDING,
     ];
 }

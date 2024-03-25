@@ -16,6 +16,43 @@
                 <source>List of all glossary entries compiled in this resource</source>
                 <target>Liste aller Glossareinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
+            <!-- Object: GlossaryEntry -->
+            <trans-unit id="object.glossaryEntry" resname="object.glossaryEntry" approved="yes">
+                <source>Glossary entry</source>
+                <target>Glossareintrag</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.type" resname="object.glossaryEntry.type" approved="yes">
+                <source>Type</source>
+                <target>Art</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.type.description" resname="object.glossaryEntry.type.description" approved="yes">
+                <source>Specific type of glossary entry</source>
+                <target>Genauere Art des Glossareintrags</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.term" resname="object.glossaryEntry.term" approved="yes">
+                <source>Term</source>
+                <target>Begriff</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.term.description" resname="object.glossaryEntry.term.description" approved="yes">
+                <source>Term to be defined</source>
+                <target>Begriff, der beschrieben werden soll</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.additionalStrings" resname="object.glossaryEntry.additionalStrings" approved="yes">
+                <source>Additional strings</source>
+                <target>Weitere Zeichenketten</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.additionalStrings.description" resname="object.glossaryEntry.additionalStrings.description" approved="yes">
+                <source>Comma-separated list of further strings to annotate, e.g., inflected forms</source>
+                <target>Kommaseparierte Liste zusätzlich zu annotierender Zeichenketten, z.B. gebeugte Formen</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.description" resname="object.glossaryEntry.description" approved="yes">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.description.description" resname="object.glossaryEntry.description.description" approved="yes">
+                <source>Brief explanation of the term in question</source>
+                <target>Kurze Erklärung des zu definierenden Begriffs</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

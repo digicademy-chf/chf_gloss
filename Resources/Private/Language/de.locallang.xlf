@@ -16,6 +16,14 @@
                 <source>List of all glossary entries compiled in this resource</source>
                 <target>Liste aller Glossareinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
+            <trans-unit id="object.glossaryResource.asGlossaryOfResource" resname="object.glossaryResource.asGlossaryOfResource" approved="yes">
+                <source>Usage as glossary of a resource</source>
+                <target>Verwendung als Glossar einer Ressource</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryResource.asGlossaryOfResource.description" resname="object.glossaryResource.asGlossaryOfResource.description" approved="yes">
+                <source>List of resources that use this resource as a glossary</source>
+                <target>Liste der Ressourcen, die diese Ressource als Glossar verwenden</target>
+            </trans-unit>
             <!-- Object: GlossaryEntry -->
             <trans-unit id="object.glossaryEntry" resname="object.glossaryEntry" approved="yes">
                 <source>Glossary entry</source>
@@ -52,6 +60,15 @@
             <trans-unit id="object.glossaryEntry.description.description" resname="object.glossaryEntry.description.description" approved="yes">
                 <source>Brief explanation of the term in question</source>
                 <target>Kurze Erklärung des zu definierenden Begriffs</target>
+            </trans-unit>
+            <!-- Object: AbstractResource -->
+            <trans-unit id="object.abstractResource.glossary" resname="object.abstractResource.glossary" approved="yes">
+                <source>Glossary</source>
+                <target>Glossar</target>
+            </trans-unit>
+            <trans-unit id="object.abstractResource.glossary.description" resname="object.abstractResource.glossary.description" approved="yes">
+                <source>Resource to use as a glossary for this resource</source>
+                <target>Ressource, die als Glossar für diese Ressource dienen soll</target>
             </trans-unit>
         </body>
     </file>

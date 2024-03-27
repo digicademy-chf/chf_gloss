@@ -13,6 +13,12 @@
             <trans-unit id="object.glossaryResource.allGlossaryEntries.description" resname="object.glossaryResource.allGlossaryEntries.description">
                 <source>List of all glossary entries compiled in this resource</source>
             </trans-unit>
+            <trans-unit id="object.glossaryResource.asGlossaryOfResource" resname="object.glossaryResource.asGlossaryOfResource">
+                <source>Usage as glossary of a resource</source>
+            </trans-unit>
+            <trans-unit id="object.glossaryResource.asGlossaryOfResource.description" resname="object.glossaryResource.asGlossaryOfResource.description">
+                <source>List of resources that use this resource as a glossary</source>
+            </trans-unit>
             <!-- Object: GlossaryEntry -->
             <trans-unit id="object.glossaryEntry" resname="object.glossaryEntry">
                 <source>Glossary entry</source>
@@ -40,6 +46,13 @@
             </trans-unit>
             <trans-unit id="object.glossaryEntry.description.description" resname="object.glossaryEntry.description.description">
                 <source>Brief explanation of the term in question</source>
+            </trans-unit>
+            <!-- Object: AbstractResource -->
+            <trans-unit id="object.abstractResource.glossary" resname="object.abstractResource.glossary">
+                <source>Glossary</source>
+            </trans-unit>
+            <trans-unit id="object.abstractResource.glossary.description" resname="object.abstractResource.glossary.description">
+                <source>Resource to use as a glossary for this resource</source>
             </trans-unit>
         </body>
     </file>

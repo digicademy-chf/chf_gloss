@@ -10,7 +10,7 @@ declare(strict_types=1);
 defined('TYPO3') or die();
 
 /**
- * GlossaryResource and its properties
+ * AbstractResource and its properties
  * 
  * Extension of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -26,9 +26,25 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add column 'allGlossaryEntries'
+// Add columns 'glossary', 'allGlossaryEntries', and 'asGlossaryOfResource'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
     [
+        'glossary' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary',
+            'description' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chfbase_domain_model_resource',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'glossaryResource\'',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
         'allGlossaryEntries' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -51,6 +67,38 @@ defined('TYPO3') or die();
                 ],
             ],
         ],
+        'asGlossaryOfResource' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource',
+            'description' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfobject_domain_model_resource',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\''
+                    . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\''
+                    . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'publicationResource\''
+                    . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'objectResource\'',
+                'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
+                'MM_opposite_field' => 'glossary',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
     ]
 );
 
@@ -60,6 +108,7 @@ defined('TYPO3') or die();
    'hiddenUuid,typeUri,titleLangCode,description,sameAs,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,publicationDateRevisionNumberRevisionDate,editorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,',
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource',
    'glossaryResource'
 );

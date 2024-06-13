@@ -30,7 +30,6 @@ Roadmap
 
 This is a pre-release version. The following steps are required for the software to move out of beta:
 
-- TCA and model work as expected
 - Frontend plugin and templates
 - Import of *Namenforschung* data
 - Embedded metadata

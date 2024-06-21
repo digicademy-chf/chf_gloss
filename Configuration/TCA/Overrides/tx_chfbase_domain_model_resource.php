@@ -43,6 +43,7 @@ defined('TYPO3') or die();
                 'sortItems' => [
                     'label' => 'asc',
                 ],
+                'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
             ],
         ],
         'allGlossaryEntries' => [
@@ -59,7 +60,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
@@ -83,6 +84,10 @@ defined('TYPO3') or die();
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'objectResource\'',
                 'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
                 'MM_opposite_field' => 'glossary',
+                'MM_match_fields' => [
+                    'fieldname' => 'asGlossaryOfResource',
+                    'tablename' => 'tx_chfbase_domain_model_resource',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -105,8 +110,8 @@ defined('TYPO3') or die();
 // Add type 'glossaryResource' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_resource',
-   'hidden,uuidType,titleLangCode,description,sameAs,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,publicationDateRevisionNumberRevisionDate,editorialNote,
+   '--palette--;;typeUuid,--palette--;;titleLangCodeDescription,sameAs,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource',

@@ -86,7 +86,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'glossary',
                 'MM_match_fields' => [
                     'fieldname' => 'asGlossaryOfResource',
-                    'tablename' => 'tx_chfbase_domain_model_resource',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

@@ -37,21 +37,29 @@
                 <source>Specific type of glossary entry</source>
                 <target>Genauere Art des Glossareintrags</target>
             </trans-unit>
+            <trans-unit id="object.glossaryEntry.type.regular" resname="object.glossaryEntry.type.regular" approved="yes">
+                <source>Regular</source>
+                <target>Normal</target>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.type.abbreviation" resname="object.glossaryEntry.type.abbreviation" approved="yes">
+                <source>Abbreviation</source>
+                <target>Abkürzung</target>
+            </trans-unit>
             <trans-unit id="object.glossaryEntry.term" resname="object.glossaryEntry.term" approved="yes">
                 <source>Term</source>
                 <target>Begriff</target>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.term.description" resname="object.glossaryEntry.term.description" approved="yes">
                 <source>Term to be defined</source>
-                <target>Begriff, der beschrieben werden soll</target>
+                <target>Zu beschreibender Begriff</target>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.additionalStrings" resname="object.glossaryEntry.additionalStrings" approved="yes">
                 <source>Additional strings</source>
                 <target>Weitere Zeichenketten</target>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.additionalStrings.description" resname="object.glossaryEntry.additionalStrings.description" approved="yes">
-                <source>Comma-separated list of further strings to annotate, e.g., inflected forms</source>
-                <target>Kommaseparierte Liste zusätzlich zu annotierender Zeichenketten, z.B. gebeugte Formen</target>
+                <source>Comma-separated list of variant forms to annotate</source>
+                <target>Kommaseparierte Liste zu annotierender Varianten</target>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.description" resname="object.glossaryEntry.description" approved="yes">
                 <source>Description</source>
@@ -67,8 +75,8 @@
                 <target>Glossar</target>
             </trans-unit>
             <trans-unit id="object.abstractResource.glossary.description" resname="object.abstractResource.glossary.description" approved="yes">
-                <source>Resource to use as a glossary for this resource</source>
-                <target>Ressource, die als Glossar für diese Ressource dienen soll</target>
+                <source>Glossary of this resource</source>
+                <target>Glossar zu dieser Ressource</target>
             </trans-unit>
         </body>
     </file>

@@ -35,11 +35,17 @@
             <trans-unit id="object.glossaryEntry.term.description" resname="object.glossaryEntry.term.description">
                 <source>Term to be defined</source>
             </trans-unit>
+            <trans-unit id="object.glossaryEntry.type.regular" resname="object.glossaryEntry.type.regular">
+                <source>Regular</source>
+            </trans-unit>
+            <trans-unit id="object.glossaryEntry.type.abbreviation" resname="object.glossaryEntry.type.abbreviation">
+                <source>Abbreviation</source>
+            </trans-unit>
             <trans-unit id="object.glossaryEntry.additionalStrings" resname="object.glossaryEntry.additionalStrings">
                 <source>Additional strings</source>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.additionalStrings.description" resname="object.glossaryEntry.additionalStrings.description">
-                <source>Comma-separated list of further strings to annotate, e.g., inflected forms</source>
+                <source>Comma-separated list of variant forms to annotate</source>
             </trans-unit>
             <trans-unit id="object.glossaryEntry.description" resname="object.glossaryEntry.description">
                 <source>Description</source>
@@ -52,7 +58,7 @@
                 <source>Glossary</source>
             </trans-unit>
             <trans-unit id="object.abstractResource.glossary.description" resname="object.abstractResource.glossary.description">
-                <source>Resource to use as a glossary for this resource</source>
+                <source>Glossary of this resource</source>
             </trans-unit>
         </body>
     </file>

@@ -84,7 +84,7 @@ class GlossaryEntry extends AbstractEntity
     protected string $term = '';
 
     /**
-     * Comma-separated list of further strings to annotate, e.g., inflected forms
+     * Comma-separated list of variant forms to annotate
      * 
      * @var string
      */
@@ -105,6 +105,32 @@ class GlossaryEntry extends AbstractEntity
         'validator' => 'String',
     ])]
     protected string $description = '';
+
+    /**
+     * URI or other identifier of the imported original
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $importOrigin = '';
+
+    /**
+     * Full import code that this record is based on
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 100000,
+        ],
+    ])]
+    protected string $import = '';
 
     /**
      * Construct object
@@ -302,5 +328,45 @@ class GlossaryEntry extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * Get import origin
+     *
+     * @return string
+     */
+    public function getImportOrigin(): string
+    {
+        return $this->importOrigin;
+    }
+
+    /**
+     * Set import origin
+     *
+     * @param string $importOrigin
+     */
+    public function setImportOrigin(string $importOrigin): void
+    {
+        $this->importOrigin = $importOrigin;
+    }
+
+    /**
+     * Get import
+     *
+     * @return string
+     */
+    public function getImport(): string
+    {
+        return $this->import;
+    }
+
+    /**
+     * Set import
+     *
+     * @param string $import
+     */
+    public function setImport(string $import): void
+    {
+        $this->import = $import;
     }
 }

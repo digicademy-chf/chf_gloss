@@ -21,7 +21,7 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryEntry',
         'label'                    => 'term',
-        'label_alt'                => 'additionalStrings,type',
+        'label_alt'                => 'additionalStrings',
         'description'              => 'description',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
@@ -36,7 +36,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uuid,type,term,additionalStrings,description',
+        'searchFields'             => 'uuid,type,term,additionalStrings,description,importOrigin,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -198,9 +198,6 @@ return [
                         'value' => 'abbreviation',
                     ],
                 ],
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
                 'required' => true,
             ],
         ],
@@ -248,18 +245,47 @@ return [
                 'required' => true,
             ],
         ],
+        'importOrigin' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.importOrigin',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.importOrigin.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+            ],
+        ],
+        'import' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import.description',
+            'config' => [
+                'type' => 'text',
+                'cols' => 40,
+                'rows' => 15,
+                'max' => 100000,
+                'eval' => 'trim',
+            ],
+        ],
     ],
     'palettes' => [
-        'uuidType' => [
-            'showitem' => 'uuid,type,',
+        'typeUuid' => [
+            'showitem' => 'type,uuid,',
         ],
-        'termAdditionalStrings' => [
-            'showitem' => 'term,additionalStrings,',
+        'termAdditionalStringsDescription' => [
+            'showitem' => 'term,additionalStrings,--linebreak--,description',
+        ],
+        'importOriginImport' => [
+            'showitem' => 'importOrigin,--linebreak--,import,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentResource,--palette--;;uuidType,--palette--;;termAdditionalStrings,description,',
+            'showitem' => '--palette--;;typeUuid,--palette--;;termAdditionalStringsDescription,parentResource,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,',
         ],
     ],
 ];

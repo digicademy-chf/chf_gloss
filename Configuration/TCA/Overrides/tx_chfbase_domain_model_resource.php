@@ -32,11 +32,17 @@ defined('TYPO3') or die();
         'glossary' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary',
-            'description' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary.description',
+            'label' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary',
+            'description' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.abstractResource.glossary.description',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbase_domain_model_resource',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'glossaryResource\'',
@@ -44,6 +50,12 @@ defined('TYPO3') or die();
                     'label' => 'asc',
                 ],
                 'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'asGlossaryOfResource',
+                ],
+                /*'MM_oppositeUsage' => [
+                    'tx_chfbase_domain_model_resource'http://cognifloyd.github.io/neos-historical-redmine/forge.typo3.org/issues/56061.html
+                ]*/
             ],
         ],
         'allGlossaryEntries' => [
@@ -71,12 +83,12 @@ defined('TYPO3') or die();
         'asGlossaryOfResource' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource',
-            'description' => 'LLL:EXT:chf_map/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource.description',
+            'label' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource',
+            'description' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource.description',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfobject_domain_model_resource',
+                'foreign_table' => 'tx_chfbase_domain_model_resource',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\''
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\''
@@ -84,35 +96,18 @@ defined('TYPO3') or die();
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'objectResource\'',
                 'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
                 'MM_opposite_field' => 'glossary',
-                'MM_match_fields' => [
-                    'fieldname' => 'asGlossaryOfResource',
-                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
     ]
 );
 
 // Add type 'glossaryResource' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-   'tx_chfbase_domain_model_resource',
-   '--palette--;;typeUuid,--palette--;;titleLangCodeDescription,sameAs,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['glossaryResource' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;titleLangCodeDescription,sameAs,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource',
-   'glossaryResource'
-);
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource,',
+]];

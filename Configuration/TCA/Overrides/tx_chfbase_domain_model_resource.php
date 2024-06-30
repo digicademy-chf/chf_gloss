@@ -50,12 +50,7 @@ defined('TYPO3') or die();
                     'label' => 'asc',
                 ],
                 'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
-                'MM_match_fields' => [
-                    'fieldname' => 'asGlossaryOfResource',
-                ],
-                /*'MM_oppositeUsage' => [
-                    'tx_chfbase_domain_model_resource'http://cognifloyd.github.io/neos-historical-redmine/forge.typo3.org/issues/56061.html
-                ]*/
+                'multiple' => 1,
             ],
         ],
         'allGlossaryEntries' => [
@@ -96,6 +91,7 @@ defined('TYPO3') or die();
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'objectResource\'',
                 'MM' => 'tx_chfbase_domain_model_resource_resource_glossary_mm',
                 'MM_opposite_field' => 'glossary',
+                'multiple' => 1,
                 'size' => 5,
                 'autoSizeMax' => 10,
             ],
@@ -107,7 +103,7 @@ defined('TYPO3') or die();
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['glossaryResource' => [
     'showitem' => '--palette--;;typeUuid,--palette--;;titleLangCodeDescription,sameAs,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allGlossaryEntries,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allGlossaryEntries,allAgents,allLocations,allPeriods,allTags,allRelations,allFileGroups,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource,',
 ]];

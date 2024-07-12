@@ -21,8 +21,8 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryEntry',
         'label'                    => 'term',
-        'label_alt'                => 'additionalStrings',
-        'description'              => 'description',
+        'label_alt'                => 'type',
+        'label_alt_force'          => true,
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -272,11 +272,11 @@ return [
         ],
     ],
     'palettes' => [
-        'typeUuid' => [
-            'showitem' => 'type,uuid,',
-        ],
         'termAdditionalStringsDescription' => [
             'showitem' => 'term,additionalStrings,--linebreak--,description',
+        ],
+        'iriUuid' => [
+            'showitem' => 'iri,uuid,',
         ],
         'importOriginImport' => [
             'showitem' => 'importOrigin,--linebreak--,import,',
@@ -284,7 +284,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;typeUuid,--palette--;;termAdditionalStringsDescription,parentResource,
+            'showitem' => 'type,--palette--;;termAdditionalStringsDescription,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,',
         ],
     ],

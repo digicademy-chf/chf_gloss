@@ -60,6 +60,13 @@
             <trans-unit id="object.abstractResource.glossary.description" resname="object.abstractResource.glossary.description">
                 <source>Glossary of this resource</source>
             </trans-unit>
+            <!-- Plugin: GlossGlossary -->
+            <trans-unit id="plugin.glossGlossary" resname="plugin.glossGlossary">
+                <source>Glossary</source>
+            </trans-unit>
+            <trans-unit id="plugin.glossGlossary.description" resname="plugin.glossGlossary.description">
+                <source>List and view brief definitions</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

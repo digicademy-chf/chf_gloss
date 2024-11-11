@@ -7,6 +7,8 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 /**
@@ -19,7 +21,7 @@ defined('TYPO3') or die();
  */
 
 // Add plugin 'GlossGlossary'
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'CHFGloss',
     'GlossGlossary',
     'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossGlossary',

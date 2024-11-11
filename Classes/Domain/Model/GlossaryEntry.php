@@ -23,7 +23,7 @@ defined('TYPO3') or die();
 class GlossaryEntry extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -31,28 +31,6 @@ class GlossaryEntry extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Resource that this database record is part of
-     * 
-     * @var ?ObjectStorage<object>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $parentResource = null;
-
-    /**
-     * Unique identifier of this database record
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'RegularExpression',
-        'options' => [
-            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
-            'errorMessage' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
-        ],
-    ])]
-    protected string $uuid = '';
 
     /**
      * Specific type of glossary entry
@@ -107,6 +85,28 @@ class GlossaryEntry extends AbstractEntity
     protected string $description = '';
 
     /**
+     * Resource that this database record is part of
+     * 
+     * @var ?ObjectStorage<object>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $parentResource = null;
+
+    /**
+     * Unique identifier of this record
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options' => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
+    protected string $uuid = '';
+
+    /**
      * URI or other identifier of the imported original
      * 
      * @var string
@@ -135,22 +135,22 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Construct object
      *
-     * @param object $parentResource
-     * @param string $uuid
      * @param string $type
      * @param string $term
      * @param string $description
+     * @param object $parentResource
+     * @param string $uuid
      * @return GlossaryEntry
      */
-    public function __construct(object $parentResource, string $uuid, string $type, string $term, string $description)
+    public function __construct(string $type, string $term, string $description, object $parentResource, string $uuid)
     {
         $this->initializeObject();
 
-        $this->addParentResource($parentResource);
-        $this->setUuid($uuid);
         $this->setType($type);
         $this->setTerm($term);
         $this->setDescription($description);
+        $this->addParentResource($parentResource);
+        $this->setUuid($uuid);
     }
 
     /**
@@ -179,75 +179,6 @@ class GlossaryEntry extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent resource
-     *
-     * @return ObjectStorage<object>
-     */
-    public function getParentResource(): ?ObjectStorage
-    {
-        return $this->parentResource;
-    }
-
-    /**
-     * Set parent resource
-     *
-     * @param ObjectStorage<object> $parentResource
-     */
-    public function setParentResource(ObjectStorage $parentResource): void
-    {
-        $this->parentResource = $parentResource;
-    }
-
-    /**
-     * Add parent resource
-     *
-     * @param object $parentResource
-     */
-    public function addParentResource(object $parentResource): void
-    {
-        $this->parentResource?->attach($parentResource);
-    }
-
-    /**
-     * Remove parent resource
-     *
-     * @param object $parentResource
-     */
-    public function removeParentResource(object $parentResource): void
-    {
-        $this->parentResource?->detach($parentResource);
-    }
-
-    /**
-     * Remove all parent resources
-     */
-    public function removeAllParentResource(): void
-    {
-        $parentResource = clone $this->parentResource;
-        $this->parentResource->removeAll($parentResource);
-    }
-
-    /**
-     * Get UUID
-     *
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Set UUID
-     *
-     * @param string $uuid
-     */
-    public function setUuid(string $uuid): void
-    {
-        $this->uuid = $uuid;
     }
 
     /**
@@ -328,6 +259,75 @@ class GlossaryEntry extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * Get parent resource
+     *
+     * @return ObjectStorage<object>
+     */
+    public function getParentResource(): ?ObjectStorage
+    {
+        return $this->parentResource;
+    }
+
+    /**
+     * Set parent resource
+     *
+     * @param ObjectStorage<object> $parentResource
+     */
+    public function setParentResource(ObjectStorage $parentResource): void
+    {
+        $this->parentResource = $parentResource;
+    }
+
+    /**
+     * Add parent resource
+     *
+     * @param object $parentResource
+     */
+    public function addParentResource(object $parentResource): void
+    {
+        $this->parentResource?->attach($parentResource);
+    }
+
+    /**
+     * Remove parent resource
+     *
+     * @param object $parentResource
+     */
+    public function removeParentResource(object $parentResource): void
+    {
+        $this->parentResource?->detach($parentResource);
+    }
+
+    /**
+     * Remove all parent resources
+     */
+    public function removeAllParentResource(): void
+    {
+        $parentResource = clone $this->parentResource;
+        $this->parentResource->removeAll($parentResource);
+    }
+
+    /**
+     * Get UUID
+     *
+     * @return string
+     */
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * Set UUID
+     *
+     * @param string $uuid
+     */
+    public function setUuid(string $uuid): void
+    {
+        $this->uuid = $uuid;
     }
 
     /**

@@ -12,10 +12,10 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
-// Register 'GlossGlossary' content element
+// Register 'Glossary' content element
 ExtensionUtility::configurePlugin(
     'CHFGloss',
-    'GlossGlossary',
+    'Glossary',
     [
         AbstractResourceController::class => 'index',
         AbstractResourceController::class => 'show',

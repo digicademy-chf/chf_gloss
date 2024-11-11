@@ -78,12 +78,12 @@
                 <source>Glossary of this resource</source>
                 <target>Glossar zu dieser Ressource</target>
             </trans-unit>
-            <!-- Plugin: GlossGlossary -->
-            <trans-unit id="plugin.glossGlossary" resname="plugin.glossGlossary" approved="yes">
+            <!-- Plugin: Glossary -->
+            <trans-unit id="plugin.glossary" resname="plugin.glossary" approved="yes">
                 <source>Glossary</source>
                 <target>Glossar</target>
             </trans-unit>
-            <trans-unit id="plugin.glossGlossary.description" resname="plugin.glossGlossary.description" approved="yes">
+            <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description" approved="yes">
                 <source>List and view brief definitions</source>
                 <target>Kurze Definitionen auflisten und anzeigen</target>
             </trans-unit>

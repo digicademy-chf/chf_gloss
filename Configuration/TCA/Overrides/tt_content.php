@@ -20,12 +20,12 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add plugin 'GlossGlossary'
+// Add plugin 'Glossary'
 ExtensionUtility::registerPlugin(
     'CHFGloss',
-    'GlossGlossary',
-    'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossGlossary',
-    'tx-chfgloss-plugin-gloss-glossary',
+    'Glossary',
+    'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossary',
+    'tx-chfgloss-plugin-glossary',
     'heritage',
-    'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossGlossary.description',
+    'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossary.description',
 );

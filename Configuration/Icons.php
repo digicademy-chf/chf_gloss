@@ -22,8 +22,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:chf_gloss/Resources/Public/Icons/TableGlossaryEntry.svg',
     ],
-    'tx-chfgloss-plugin-gloss-glossary' => [
+    'tx-chfgloss-plugin-glossary' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:chf_gloss/Resources/Public/Icons/PluginGlossGlossary.svg',
+        'source' => 'EXT:chf_gloss/Resources/Public/Icons/PluginGlossary.svg',
     ],
 ];

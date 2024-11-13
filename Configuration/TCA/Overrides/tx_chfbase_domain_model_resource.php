@@ -26,7 +26,7 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'glossary', 'allGlossaryEntries', and 'asGlossaryOfResource'
+// Add columns 'glossary', 'all_glossary_entries', and 'as_glossary_of_resource'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
     [
         'glossary' => [
@@ -53,7 +53,7 @@ defined('TYPO3') or die();
                 'multiple' => 1,
             ],
         ],
-        'allGlossaryEntries' => [
+        'all_glossary_entries' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryResource.allGlossaryEntries',
@@ -61,7 +61,7 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfgloss_domain_model_glossary_entry',
-                'foreign_field' => 'parentResource',
+                'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
                     'collapseAll' => true,
@@ -75,7 +75,7 @@ defined('TYPO3') or die();
                 ],
             ],
         ],
-        'asGlossaryOfResource' => [
+        'as_glossary_of_resource' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryResource.asGlossaryOfResource',
@@ -102,9 +102,9 @@ defined('TYPO3') or die();
 // Add type 'glossaryResource' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['glossaryResource' => [
    'showitem' => 'type,--palette--;;titleLangCodeDescription,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,allGlossaryEntries,allAgents,allLocations,allPeriods,allTags,allKeywords,allRelations,allFileGroups,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,all_glossary_entries,all_agents,all_locations,all_periods,all_tags,all_keywords,all_relations,all_file_groups,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuidSameAs,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asGlossaryOfResource,',
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_glossary_of_resource,',
 ]];

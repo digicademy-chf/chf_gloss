@@ -36,7 +36,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'type,term,additionalStrings,description,uuid,importOrigin,import',
+        'searchFields'             => 'type,term,additional_strings,description,uuid,import_origin,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -189,7 +189,7 @@ return [
                 'required' => true,
             ],
         ],
-        'additionalStrings' => [
+        'additional_strings' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryEntry.additionalStrings',
             'description' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryEntry.additionalStrings.description',
@@ -218,7 +218,7 @@ return [
                 'required' => true,
             ],
         ],
-        'parentResource' => [
+        'parent_resource' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource',
@@ -246,7 +246,7 @@ return [
                 'required' => true,
             ],
         ],
-        'importOrigin' => [
+        'import_origin' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.importOrigin',
@@ -274,19 +274,19 @@ return [
     ],
     'palettes' => [
         'termAdditionalStringsDescription' => [
-            'showitem' => 'term,additionalStrings,--linebreak--,description',
+            'showitem' => 'term,additional_strings,--linebreak--,description',
         ],
         'iriUuid' => [
             'showitem' => 'iri,uuid,',
         ],
         'importOriginImport' => [
-            'showitem' => 'importOrigin,--linebreak--,import,',
+            'showitem' => 'import_origin,--linebreak--,import,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => 'type,--palette--;;termAdditionalStringsDescription,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,',
         ],
     ],

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFGloss\Domain\Repository;
 
+use Digicademy\CHFBase\Domain\Repository\Traits\StoragePageAgnosticTrait;
 use Digicademy\CHFGloss\Domain\Model\GlossaryEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -22,6 +23,8 @@ defined('TYPO3') or die();
  */
 class GlossaryEntryRepository extends Repository
 {
+    use StoragePageAgnosticTrait;
+
     protected $defaultOrderings = [
         'sorting' => QueryInterface::ORDER_ASCENDING,
         'term'    => QueryInterface::ORDER_ASCENDING,

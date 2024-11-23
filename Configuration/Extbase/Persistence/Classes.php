@@ -25,4 +25,8 @@ return [
             'glossaryResource' => Digicademy\CHFGloss\Domain\Model\GlossaryResource::class,
         ],
     ],
+    Digicademy\CHFGloss\Domain\Model\GlossaryResource::class => [
+        'tableName' => 'tx_chfbase_domain_model_resource',
+        'recordType' => 'glossaryResource',
+    ],
 ];

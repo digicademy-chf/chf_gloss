@@ -87,7 +87,7 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Resource that this database record is part of
      * 
-     * @var ?ObjectStorage<object>
+     * @var ?ObjectStorage<GlossaryResource>
      */
     #[Lazy()]
     protected ?ObjectStorage $parentResource = null;
@@ -138,11 +138,11 @@ class GlossaryEntry extends AbstractEntity
      * @param string $type
      * @param string $term
      * @param string $description
-     * @param object $parentResource
+     * @param GlossaryResource $parentResource
      * @param string $uuid
      * @return GlossaryEntry
      */
-    public function __construct(string $type, string $term, string $description, object $parentResource, string $uuid)
+    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource, string $uuid)
     {
         $this->initializeObject();
 
@@ -264,7 +264,7 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Get parent resource
      *
-     * @return ObjectStorage<object>
+     * @return ObjectStorage<GlossaryResource>
      */
     public function getParentResource(): ?ObjectStorage
     {
@@ -274,7 +274,7 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Set parent resource
      *
-     * @param ObjectStorage<object> $parentResource
+     * @param ObjectStorage<GlossaryResource> $parentResource
      */
     public function setParentResource(ObjectStorage $parentResource): void
     {
@@ -284,9 +284,9 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Add parent resource
      *
-     * @param object $parentResource
+     * @param GlossaryResource $parentResource
      */
-    public function addParentResource(object $parentResource): void
+    public function addParentResource(GlossaryResource $parentResource): void
     {
         $this->parentResource?->attach($parentResource);
     }
@@ -294,9 +294,9 @@ class GlossaryEntry extends AbstractEntity
     /**
      * Remove parent resource
      *
-     * @param object $parentResource
+     * @param GlossaryResource $parentResource
      */
-    public function removeParentResource(object $parentResource): void
+    public function removeParentResource(GlossaryResource $parentResource): void
     {
         $this->parentResource?->detach($parentResource);
     }

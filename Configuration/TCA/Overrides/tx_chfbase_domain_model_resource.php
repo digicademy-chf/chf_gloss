@@ -60,7 +60,7 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryResource.allGlossaryEntries.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfgloss_domain_model_glossary_entry',
+                'foreign_table' => 'tx_chfgloss_domain_model_glossaryentry',
                 'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [

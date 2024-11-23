@@ -13,6 +13,10 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractResource;
+use Digicademy\CHFBib\Domain\Model\BibliographicResource;
+use Digicademy\CHFLex\Domain\Model\LexicographicResource;
+use Digicademy\CHFObject\Domain\Model\ObjectResource;
+use Digicademy\CHFPub\Domain\Model\PublicationResource;
 
 defined('TYPO3') or die();
 
@@ -35,7 +39,7 @@ class GlossaryResource extends AbstractResource
     /**
      * List of resources that use this resource as a glossary
      * 
-     * @var ?ObjectStorage<object>
+     * @var ?ObjectStorage<BibliographicResource|LexicographicResource|ObjectResource|PublicationResource>
      */
     #[Lazy()]
     protected ?ObjectStorage $asGlossaryOfResource;
@@ -116,7 +120,7 @@ class GlossaryResource extends AbstractResource
     /**
      * Get as glossary of resource
      *
-     * @return ObjectStorage<object>
+     * @return ObjectStorage<BibliographicResource|LexicographicResource|ObjectResource|PublicationResource>
      */
     public function getAsGlossaryOfResource(): ?ObjectStorage
     {
@@ -126,7 +130,7 @@ class GlossaryResource extends AbstractResource
     /**
      * Set as glossary of resource
      *
-     * @param ObjectStorage<object> $asGlossaryOfResource
+     * @param ObjectStorage<BibliographicResource|LexicographicResource|ObjectResource|PublicationResource> $asGlossaryOfResource
      */
     public function setAsGlossaryOfResource(ObjectStorage $asGlossaryOfResource): void
     {
@@ -136,9 +140,9 @@ class GlossaryResource extends AbstractResource
     /**
      * Add as glossary of resource
      *
-     * @param object $asGlossaryOfResource
+     * @param BibliographicResource|LexicographicResource|ObjectResource|PublicationResource $asGlossaryOfResource
      */
-    public function addAsGlossaryOfResource(object $asGlossaryOfResource): void
+    public function addAsGlossaryOfResource(BibliographicResource|LexicographicResource|ObjectResource|PublicationResource $asGlossaryOfResource): void
     {
         $this->asGlossaryOfResource?->attach($asGlossaryOfResource);
     }
@@ -146,9 +150,9 @@ class GlossaryResource extends AbstractResource
     /**
      * Remove as glossary of resource
      *
-     * @param object $asGlossaryOfResource
+     * @param BibliographicResource|LexicographicResource|ObjectResource|PublicationResource $asGlossaryOfResource
      */
-    public function removeAsGlossaryOfResource(object $asGlossaryOfResource): void
+    public function removeAsGlossaryOfResource(BibliographicResource|LexicographicResource|ObjectResource|PublicationResource $asGlossaryOfResource): void
     {
         $this->asGlossaryOfResource?->detach($asGlossaryOfResource);
     }

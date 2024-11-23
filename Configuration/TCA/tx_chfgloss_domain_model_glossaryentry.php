@@ -92,9 +92,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chfgloss_domain_model_glossary_entry',
-                'foreign_table_where' => 'AND {#tx_chfgloss_domain_model_glossary_entry}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfgloss_domain_model_glossary_entry}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_chfgloss_domain_model_glossaryentry',
+                'foreign_table_where' => 'AND {#tx_chfgloss_domain_model_glossaryentry}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfgloss_domain_model_glossaryentry}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],

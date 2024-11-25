@@ -7,7 +7,7 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
-use Digicademy\CHFBase\Controller\AbstractResourceController;
+use Digicademy\CHFGloss\Controller\GlossaryController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
@@ -17,7 +17,7 @@ ExtensionUtility::configurePlugin(
     'CHFGloss',
     'Glossary',
     [
-        AbstractResourceController::class => 'index, show',
+        GlossaryController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

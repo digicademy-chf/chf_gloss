@@ -9,28 +9,28 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFGloss\Controller;
 
-use Psr\Http\Message\ResponseInterface;
+use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFGloss\Domain\Model\GlossaryEntry;
-use Digicademy\CHFGloss\Domain\Repository\GlossaryEntryRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
 
 /**
- * Controller for GlossaryEntry
+ * Controller for Glossary
  */
-class GlossaryEntryController extends ActionController
+class GlossaryController extends ActionController
 {
-    private GlossaryEntryRepository $glossaryEntryRepository;
+    private AbstractResourceRepository $abstractResourceRepository;
 
-    public function injectGlossaryEntryRepository(GlossaryEntryRepository $glossaryEntryRepository): void
+    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
     {
-        $this->glossaryEntryRepository = $glossaryEntryRepository;
+        $this->abstractResourceRepository = $abstractResourceRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('glossaryEntries', $this->glossaryEntryRepository->findAll());
+        $this->view->assign('resource', $this->abstractResourceRepository->findOneBy(['type' => 'glossaryResource']));
         return $this->htmlResponse();
     }
 

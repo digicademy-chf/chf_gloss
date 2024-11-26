@@ -1,0 +1,28 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data</sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.resource>
+                        <exclude>true</exclude>
+                        <l10n_mode>exclude</l10n_mode>
+                        <label>LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.resource</label>
+                        <description>LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.resource.description</description>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <foreign_table>tx_chfbase_domain_model_resource</foreign_table>
+                            <foreign_table_where>AND {#tx_chfbase_domain_model_resource}.{#type}='glossaryResource'</foreign_table_where>
+                            <sortItems>
+                                <label>asc</label>
+                            </sortItems>
+                            <required>true</required>
+                        </config>
+                    </settings.resource>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

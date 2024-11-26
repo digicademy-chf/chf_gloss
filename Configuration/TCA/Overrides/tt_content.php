@@ -7,6 +7,7 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
@@ -28,4 +29,19 @@ ExtensionUtility::registerPlugin(
     'tx-chfgloss-plugin-glossary',
     'heritage',
     'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossary.description',
+);
+
+// Add data tab to plugin form
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data,pi_flexform',
+    'chfgloss_glossary',
+    'after:subheader',
+);
+
+// Add form for plugin 'Glossary'
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:chf_gloss/Configuration/FlexForms/PluginData.xml',
+    'chfgloss_glossary',
 );

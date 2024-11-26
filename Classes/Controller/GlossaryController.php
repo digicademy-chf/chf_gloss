@@ -30,7 +30,8 @@ class GlossaryController extends ActionController
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('resource', $this->abstractResourceRepository->findOneBy(['type' => 'glossaryResource']));
+        $resourceIdentifier = $this->settings['resource'];
+        $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
         return $this->htmlResponse();
     }
 

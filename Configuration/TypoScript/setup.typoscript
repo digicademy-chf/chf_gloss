@@ -1,0 +1,18 @@
+# Plugin templates
+plugin.tx_chfgloss {
+  view {
+    templateRootPaths {
+        100 = EXT:chf_gloss/Resources/Private/Templates/
+        200 = {$chf.templates.path}Templates/
+    }
+    partialRootPaths {
+        100 = EXT:chf_gloss/Resources/Private/Partials/
+        200 = {$chf.templates.path}Partials/
+    }
+    layoutRootPaths {
+        100 = EXT:chf_gloss/Resources/Private/Layouts/
+        200 = {$chf.templates.path}Layouts/
+    }
+    defaultPid = auto
+  }
+}

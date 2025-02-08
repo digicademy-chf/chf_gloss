@@ -273,21 +273,18 @@ return [
         ],
     ],
     'palettes' => [
-        'termAdditionalStringsDescription' => [
-            'showitem' => 'term,additional_strings,--linebreak--,description',
+        'termAdditionalStrings' => [
+            'showitem' => 'term,additional_strings,',
         ],
         'iriUuid' => [
             'showitem' => 'iri,uuid,',
         ],
-        'importOriginImport' => [
-            'showitem' => 'import_origin,--linebreak--,import,',
-        ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'type,--palette--;;termAdditionalStringsDescription,
+            'showitem' => 'type,--palette--;;termAdditionalStrings,description,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
         ],
     ],
 ];

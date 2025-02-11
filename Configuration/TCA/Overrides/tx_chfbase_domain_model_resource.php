@@ -44,8 +44,7 @@ defined('TYPO3') or die();
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_resource',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'glossaryResource\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#type}=\'glossaryResource\'',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -84,8 +83,7 @@ defined('TYPO3') or die();
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_chfbase_domain_model_resource',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\''
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#type}=\'bibliographicResource\''
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\''
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'publicationResource\''
                     . ' OR {#tx_chfbase_domain_model_resource}.{#type}=\'objectResource\'',

@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFGloss\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\IriTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\UuidTrait;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -22,6 +24,9 @@ defined('TYPO3') or die();
  */
 class GlossaryEntry extends AbstractEntity
 {
+    use IriTrait;
+    use UuidTrait;
+
     /**
      * Record visible or not
      * 
@@ -93,20 +98,6 @@ class GlossaryEntry extends AbstractEntity
     protected ?ObjectStorage $parentResource = null;
 
     /**
-     * Unique identifier of this record
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'RegularExpression',
-        'options' => [
-            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
-            'errorMessage' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
-        ],
-    ])]
-    protected string $uuid = '';
-
-    /**
      * URI or other identifier of the imported original
      * 
      * @var string
@@ -139,10 +130,11 @@ class GlossaryEntry extends AbstractEntity
      * @param string $term
      * @param string $description
      * @param GlossaryResource $parentResource
+     * @param string $iri
      * @param string $uuid
      * @return GlossaryEntry
      */
-    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource, string $uuid)
+    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource, string $iri, string $uuid)
     {
         $this->initializeObject();
 
@@ -150,6 +142,7 @@ class GlossaryEntry extends AbstractEntity
         $this->setTerm($term);
         $this->setDescription($description);
         $this->addParentResource($parentResource);
+        $this->setIri($iri);
         $this->setUuid($uuid);
     }
 
@@ -308,26 +301,6 @@ class GlossaryEntry extends AbstractEntity
     {
         $parentResource = clone $this->parentResource;
         $this->parentResource->removeAll($parentResource);
-    }
-
-    /**
-     * Get UUID
-     *
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Set UUID
-     *
-     * @param string $uuid
-     */
-    public function setUuid(string $uuid): void
-    {
-        $this->uuid = $uuid;
     }
 
     /**

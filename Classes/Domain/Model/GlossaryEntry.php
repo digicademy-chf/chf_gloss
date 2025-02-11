@@ -130,11 +130,9 @@ class GlossaryEntry extends AbstractEntity
      * @param string $term
      * @param string $description
      * @param GlossaryResource $parentResource
-     * @param string $iri
-     * @param string $uuid
      * @return GlossaryEntry
      */
-    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource, string $iri, string $uuid)
+    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource)
     {
         $this->initializeObject();
 
@@ -142,8 +140,6 @@ class GlossaryEntry extends AbstractEntity
         $this->setTerm($term);
         $this->setDescription($description);
         $this->addParentResource($parentResource);
-        $this->setIri($iri);
-        $this->setUuid($uuid);
     }
 
     /**

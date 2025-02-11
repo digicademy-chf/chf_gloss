@@ -48,13 +48,11 @@ class GlossaryResource extends AbstractResource
      * Construct object
      *
      * @param string $langCode
-     * @param string $iri
-     * @param string $uuid
      * @return GlossaryResource
      */
-    public function __construct(string $langCode, string $iri, string $uuid)
+    public function __construct(string $langCode)
     {
-        parent::__construct($langCode, $iri, $uuid);
+        parent::__construct($langCode);
         $this->initializeObject();
 
         $this->setType('glossaryResource');

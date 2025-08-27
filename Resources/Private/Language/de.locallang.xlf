@@ -8,22 +8,6 @@
                 <source>Glossary</source>
                 <target>Glossar</target>
             </trans-unit>
-            <trans-unit id="object.glossaryResource.allGlossaryEntries" resname="object.glossaryResource.allGlossaryEntries" approved="yes">
-                <source>All glossary entries</source>
-                <target>Alle Glossareinträge</target>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.allGlossaryEntries.description" resname="object.glossaryResource.allGlossaryEntries.description" approved="yes">
-                <source>List of all glossary entries compiled in this resource</source>
-                <target>Liste aller Glossareinträge, die in dieser Ressource verzeichnet sind</target>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.asGlossaryOfResource" resname="object.glossaryResource.asGlossaryOfResource" approved="yes">
-                <source>Usage as glossary of a resource</source>
-                <target>Verwendung als Glossar einer Ressource</target>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.asGlossaryOfResource.description" resname="object.glossaryResource.asGlossaryOfResource.description" approved="yes">
-                <source>List of resources that use this resource as a glossary</source>
-                <target>Liste der Ressourcen, die diese Ressource als Glossar verwenden</target>
-            </trans-unit>
             <!-- Object: GlossaryEntry -->
             <trans-unit id="object.glossaryEntry" resname="object.glossaryEntry" approved="yes">
                 <source>Glossary entry</source>
@@ -84,8 +68,8 @@
                 <target>Glossar</target>
             </trans-unit>
             <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description" approved="yes">
-                <source>List and view brief definitions</source>
-                <target>Kurze Definitionen auflisten und anzeigen</target>
+                <source>List brief definitions</source>
+                <target>Kurze Definitionen auflisten</target>
             </trans-unit>
         </body>
     </file>

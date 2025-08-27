@@ -7,18 +7,6 @@
             <trans-unit id="object.glossaryResource.type.glossaryResource" resname="object.glossaryResource.type.glossaryResource">
                 <source>Glossary</source>
             </trans-unit>
-            <trans-unit id="object.glossaryResource.allGlossaryEntries" resname="object.glossaryResource.allGlossaryEntries">
-                <source>All glossary entries</source>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.allGlossaryEntries.description" resname="object.glossaryResource.allGlossaryEntries.description">
-                <source>List of all glossary entries compiled in this resource</source>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.asGlossaryOfResource" resname="object.glossaryResource.asGlossaryOfResource">
-                <source>Usage as glossary of a resource</source>
-            </trans-unit>
-            <trans-unit id="object.glossaryResource.asGlossaryOfResource.description" resname="object.glossaryResource.asGlossaryOfResource.description">
-                <source>List of resources that use this resource as a glossary</source>
-            </trans-unit>
             <!-- Object: GlossaryEntry -->
             <trans-unit id="object.glossaryEntry" resname="object.glossaryEntry">
                 <source>Glossary entry</source>
@@ -65,7 +53,7 @@
                 <source>Glossary</source>
             </trans-unit>
             <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description">
-                <source>List and view brief definitions</source>
+                <source>List brief definitions</source>
             </trans-unit>
         </body>
     </file>

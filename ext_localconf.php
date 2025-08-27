@@ -17,7 +17,7 @@ ExtensionUtility::configurePlugin(
     'CHFGloss',
     'Glossary',
     [
-        GlossaryController::class => 'index, show',
+        GlossaryController::class => 'index',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

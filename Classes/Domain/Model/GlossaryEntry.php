@@ -9,13 +9,16 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFGloss\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ImportTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ImportOriginTrait;
 use Digicademy\CHFBase\Domain\Model\Traits\IriTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
 use Digicademy\CHFBase\Domain\Model\Traits\UuidTrait;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 
 defined('TYPO3') or die();
 
@@ -24,18 +27,12 @@ defined('TYPO3') or die();
  */
 class GlossaryEntry extends AbstractEntity
 {
+    use HiddenTrait;
+    use ImportTrait;
+    use ImportOriginTrait;
     use IriTrait;
+    use ParentResourceTrait;
     use UuidTrait;
-
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
 
     /**
      * Specific type of glossary entry
@@ -90,56 +87,21 @@ class GlossaryEntry extends AbstractEntity
     protected string $description = '';
 
     /**
-     * Resource that this database record is part of
-     * 
-     * @var ?ObjectStorage<GlossaryResource>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $parentResource = null;
-
-    /**
-     * URI or other identifier of the imported original
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'StringLength',
-        'options'   => [
-            'maximum' => 255,
-        ],
-    ])]
-    protected string $importOrigin = '';
-
-    /**
-     * Full import code that this record is based on
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'StringLength',
-        'options'   => [
-            'maximum' => 100000,
-        ],
-    ])]
-    protected string $import = '';
-
-    /**
      * Construct object
      *
      * @param string $type
      * @param string $term
      * @param string $description
-     * @param GlossaryResource $parentResource
      * @return GlossaryEntry
      */
-    public function __construct(string $type, string $term, string $description, GlossaryResource $parentResource)
+    public function __construct(string $type, string $term, string $description)
     {
         $this->initializeObject();
 
         $this->setType($type);
         $this->setTerm($term);
         $this->setDescription($description);
-        $this->addParentResource($parentResource);
+        $this->setIri('ge');
     }
 
     /**
@@ -148,26 +110,6 @@ class GlossaryEntry extends AbstractEntity
     public function initializeObject(): void
     {
         $this->parentResource ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
     }
 
     /**
@@ -248,94 +190,5 @@ class GlossaryEntry extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
-    }
-
-    /**
-     * Get parent resource
-     *
-     * @return ObjectStorage<GlossaryResource>
-     */
-    public function getParentResource(): ?ObjectStorage
-    {
-        return $this->parentResource;
-    }
-
-    /**
-     * Set parent resource
-     *
-     * @param ObjectStorage<GlossaryResource> $parentResource
-     */
-    public function setParentResource(ObjectStorage $parentResource): void
-    {
-        $this->parentResource = $parentResource;
-    }
-
-    /**
-     * Add parent resource
-     *
-     * @param GlossaryResource $parentResource
-     */
-    public function addParentResource(GlossaryResource $parentResource): void
-    {
-        $this->parentResource?->attach($parentResource);
-    }
-
-    /**
-     * Remove parent resource
-     *
-     * @param GlossaryResource $parentResource
-     */
-    public function removeParentResource(GlossaryResource $parentResource): void
-    {
-        $this->parentResource?->detach($parentResource);
-    }
-
-    /**
-     * Remove all parent resources
-     */
-    public function removeAllParentResource(): void
-    {
-        $parentResource = clone $this->parentResource;
-        $this->parentResource->removeAll($parentResource);
-    }
-
-    /**
-     * Get import origin
-     *
-     * @return string
-     */
-    public function getImportOrigin(): string
-    {
-        return $this->importOrigin;
-    }
-
-    /**
-     * Set import origin
-     *
-     * @param string $importOrigin
-     */
-    public function setImportOrigin(string $importOrigin): void
-    {
-        $this->importOrigin = $importOrigin;
-    }
-
-    /**
-     * Get import
-     *
-     * @return string
-     */
-    public function getImport(): string
-    {
-        return $this->import;
-    }
-
-    /**
-     * Set import
-     *
-     * @param string $import
-     */
-    public function setImport(string $import): void
-    {
-        $this->import = $import;
     }
 }

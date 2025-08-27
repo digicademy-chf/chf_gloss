@@ -1,5 +1,6 @@
 {
     "name": "digicademy/chf_gloss",
+    "version": "2.0.0",
     "type": "typo3-cms-extension",
     "description": "Provide glossaries for research data in TYPO3",
     "authors": [
@@ -31,8 +32,11 @@
     ],
     "require": {
         "typo3/cms-core": "^13",
+        "typo3/cms-extbase": "^13",
+        "typo3/cms-fluid": "^13",
         "typo3/cms-fluid-styled-content": "^13",
-        "digicademy/chf_base": "@dev"
+        "typo3/cms-rte-ckeditor": "^13",
+        "digicademy/chf_base": "^2"
     },
     "autoload": {
         "psr-4": {

@@ -10,9 +10,10 @@ declare(strict_types=1);
 namespace Digicademy\CHFGloss\Controller;
 
 use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
+use Digicademy\CHFGloss\Domain\Model\GlossaryEntry;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage;
 
 defined('TYPO3') or die();
 
@@ -21,12 +22,12 @@ defined('TYPO3') or die();
  */
 class GlossaryController extends ActionController
 {
-    private AbstractResourceRepository $abstractResourceRepository;
-
-    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
-    {
-        $this->abstractResourceRepository = $abstractResourceRepository;
-    }
+    /**
+     * Constructor takes care of dependency injection
+     */
+    public function __construct(
+        protected readonly AbstractResourceRepository $abstractResourceRepository,
+    ) {}
 
     /**
      * Show glossary entry list
@@ -37,13 +38,24 @@ class GlossaryController extends ActionController
     {
         // Get resource
         $resourceIdentifier = $this->settings['resource'];
-        $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
+        $resource = $this->abstractResourceRepository->findByIdentifier($resourceIdentifier);
+        $glossaryEntries = $resource->getItems()->toArray();
+        $this->view->assign('glossaryEntries', $glossaryEntries);
 
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
+        // Create response
+        return $this->htmlResponse();
+    }
+
+    /**
+     * Show single glossary entry
+     *
+     * @param GlossaryEntry $glossaryEntry
+     * @return ResponseInterface
+     */
+    public function showAction(GlossaryEntry $glossaryEntry): ResponseInterface
+    {
+        // Get glossary entry
+        $this->view->assign('glossaryEntry', $glossaryEntry);
 
         // Create response
         return $this->htmlResponse();

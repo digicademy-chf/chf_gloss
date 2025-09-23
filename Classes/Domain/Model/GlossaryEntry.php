@@ -109,7 +109,7 @@ class GlossaryEntry extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentResource ??= new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
     }
 
     /**

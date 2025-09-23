@@ -64,4 +64,5 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['glossaryResour
 ]];
 
 // Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['allowed'] .= ',tx_chfgloss_domain_model_glossaryentry';
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chfgloss_domain_model_glossaryentry'] = ['parent_resource'];

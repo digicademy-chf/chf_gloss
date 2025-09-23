@@ -53,7 +53,7 @@
                 <source>Glossary</source>
             </trans-unit>
             <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description">
-                <source>List brief definitions</source>
+                <source>List and show brief definitions</source>
             </trans-unit>
         </body>
     </file>

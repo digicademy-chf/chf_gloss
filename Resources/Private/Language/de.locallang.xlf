@@ -68,8 +68,8 @@
                 <target>Glossar</target>
             </trans-unit>
             <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description" approved="yes">
-                <source>List brief definitions</source>
-                <target>Kurze Definitionen auflisten</target>
+                <source>List and show brief definitions</source>
+                <target>Kurze Definitionen auflisten und anzeigen</target>
             </trans-unit>
         </body>
     </file>

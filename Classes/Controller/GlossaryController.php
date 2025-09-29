@@ -13,7 +13,6 @@ use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFGloss\Domain\Model\GlossaryEntry;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage;
 
 defined('TYPO3') or die();
 

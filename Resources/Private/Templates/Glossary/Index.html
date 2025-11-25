@@ -1,20 +1,308 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:comment>Template that lists glossary entries.</f:comment>
+
+    <f:render partial="Main/Title" arguments="{title: title}" />
+
+    <mdlr:page.section id="main-toolbar" variants="{0: 'toolbar', 1: 'ultrawide'}">
+
+        <mdlr:atom.heading text="{f:translate(key: 'templates.toolbar', extensionName: 'chf_base')}" level="3" variants="{0: 'tacit'}" />
+
+        <mdlr:template.pattern variants="{0: 'triptych'}">
+
+            <mdlr:organism.form.wrap action="{f:uri.page()}" areas="{0: 'slot-a', 1: 'align-left'}" variants="{0: 'compact'}" role="search">
+                <mdlr:molecule.search id="filter-search" name="q" text="{f:translate(key: 'templates.search.query', extensionName: 'chf_base')}" example="{f:translate(key: 'templates.search.query.example', extensionName: 'chf_base')}" go="{f:translate(key: 'templates.search.go', extensionName: 'chf_base')}" regexGo="{f:translate(key: 'templates.search.regexGo', extensionName: 'chf_base')}" compact="{true}" />
+            </mdlr:organism.form.wrap>
+
+            <mdlr:molecule.buttonRow.wrap areas="{0: 'slot-b', 1: 'align-center'}">
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="filter-taxonomy">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'texticon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.taxonomy', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.filter.hint', extensionName: 'chf_base')}" iconAfter="down" popoverTarget="filter-taxonomy" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="1" text="Beispiellabel" textCount="418" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="2" text="Noch was" textCount="558" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="3" text="Total strukturiert" textCount="439" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="4" text="Immer mehr" textCount="394" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="filter-authorship">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'texticon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.authorship', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.filter.hint', extensionName: 'chf_base')}" iconAfter="down" popoverTarget="filter-authorship" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="Griebel, Julia" textCount="190" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="Heuser, Rita" textCount="412" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="Rosar, Anne" textCount="89" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="Scheller, Andrea" textCount="18" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="filter-online">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'texticon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.online', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.filter.hint', extensionName: 'chf_base')}" iconAfter="down" popoverTarget="filter-online" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="2025" textCount="418" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="2024" textCount="558" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="2023" textCount="439" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.hierarchy', extensionName: 'chf_base')}" icon="right" />
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" text="2022" textCount="394" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="filter-reuse">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'texticon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.reuse', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.filter.hint', extensionName: 'chf_base')}" iconAfter="down" popoverTarget="filter-reuse" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="CC0 1.0" text="Kein Urheberrechtsschutz" textCount="356" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'mini', 1: 'unobtrusive'}" textCode="CC BY 4.0" text="Namensnennung" textCount="29" hint="{f:translate(key: 'templates.toolbar.filter.add', extensionName: 'chf_base')}" />
+                                <mdlr:atom.button.disabled variants="{0: 'miniicon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.filter.exclude', extensionName: 'chf_base')}" icon="block" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+            </mdlr:molecule.buttonRow.wrap>
+
+            <mdlr:molecule.buttonRow.wrap variants="{0: 'nowrap'}" areas="{0: 'slot-c', 1: 'align-right'}">
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="list-sort" variants="{0: 'right'}">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.sort', extensionName: 'chf_base')}" icon="sort" popoverTarget="list-sort" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item selected="{true}">
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.sort.titleAZ', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.sort.hint', extensionName: 'chf_base')}" icon="checkmark" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.sort.titleZA', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.sort.hint', extensionName: 'chf_base')}" icon="blank" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.sort.onlineNewOld', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.sort.hint', extensionName: 'chf_base')}" icon="blank" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.sort.onlineOldNew', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.sort.hint', extensionName: 'chf_base')}" icon="blank" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+                <mdlr:molecule.buttonRow.item>
+                    <mdlr:molecule.dropdown.wrap id="list-view" variants="{0: 'right'}">
+
+                        <f:fragment name="handle">
+                            <mdlr:atom.button.function function="dropdown" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.view', extensionName: 'chf_base')}" icon="view" popoverTarget="list-view" />
+                        </f:fragment>
+
+                        <f:fragment name="list">
+                            <mdlr:molecule.dropdown.item selected="{true}">
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.view.list', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.view.hint', extensionName: 'chf_base')}" icon="checkmark" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.view.tiles', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.view.hint', extensionName: 'chf_base')}" icon="blank" />
+                            </mdlr:molecule.dropdown.item>
+                            <mdlr:molecule.dropdown.item>
+                                <mdlr:atom.button.function function="" variants="{0: 'texticon', 1: 'mini', 2: 'unobtrusive'}" text="{f:translate(key: 'templates.toolbar.view.table', extensionName: 'chf_base')}" hint="{f:translate(key: 'templates.toolbar.view.hint', extensionName: 'chf_base')}" icon="blank" />
+                            </mdlr:molecule.dropdown.item>
+                        </f:fragment>
+
+                    </mdlr:molecule.dropdown.wrap>
+                </mdlr:molecule.buttonRow.item>
+
+            </mdlr:molecule.buttonRow.wrap>
+
+        </mdlr:template.pattern>
+
+    </mdlr:page.section>
+
+    <mdlr:page.section id="main-filterbar" variants="{0: 'filterbar', 1: 'ultrawide'}">
+
+        <mdlr:atom.heading text="{f:translate(key: 'templates.filterbar', extensionName: 'chf_base')}" level="3" variants="{0: 'tacit'}" />
+
+        <mdlr:molecule.buttonRow.wrap>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" textCode="{f:translate(key: 'templates.toolbar.filter.search', extensionName: 'chf_base')}" text="Herbert" hint="{f:translate(key: 'templates.filterbar.remove', extensionName: 'chf_base')}" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" textCode="{f:translate(key: 'templates.toolbar.filter.authorship', extensionName: 'chf_base')}" text="Griebel, Julia" hint="{f:translate(key: 'templates.filterbar.remove', extensionName: 'chf_base')}" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.filterbar.removeAll', extensionName: 'chf_base')}" icon="remove" />
+            </mdlr:molecule.buttonRow.item>
+
+        </mdlr:molecule.buttonRow.wrap>
+
+    </mdlr:page.section>
+
+
+
+
+
     <!--<ul>
         <f:for each="{glossaryEntries}" as="entry">
             <li><f:link.action action="show" arguments="{glossaryEntry: entry}">{entry.term}</f:link.action></li>
         </f:for>
     </ul>-->
-    <dl>
-        <div>
-            <dt>Sample term</dt>
-            <dd>TODO with more text. With more text. With more text. With more text. With more text. With more text. With more text. With more text. With more text.</dd>
+    <mdlr:page.section id="main-content" variants="{0: 'even', 1: 'ultrawide'}">
+        <div class="mdlr-content">
+            <dl>
+                <div>
+                    <dt><f:link.action action="show" arguments="{glossaryEntry: 1}">Ablativ</f:link.action></dt>
+                    <dd>
+                        <p>Fall, der Trennung, Wegbewegung, Herkunft und Ähnliches ausdrückt (z.B. lateinisch <i>domō</i>, türkisch <i>evden</i>, finnisch <i>talolta</i> ‘von/aus dem Haus’); in Familiennamen z.B. türkisch <i>Çelikten</i> ‘aus Stahl’.</p>
+                    </dd>
+                </div>
+                <div>
+                    <dt><f:link.action action="show" arguments="{glossaryEntry: 2}">Akan</f:link.action></dt>
+                    <dd>
+                        <p>Multiethnische Bevölkerungsgruppe Westafrikas, die heute hauptsächlich in Ghana und der Elfenbeinküste sowie in Togo und Burkina Faso lebt. Außerdem größte Untergruppe (ca. 8 Millionen Sprecher*innen) der Kwa-Sprachen, die zur Familie der Niger-Kongo-Sprachen gehören; zum Akan zählen u. a. die Sprachen Aschanti (auch Asante-Twi), Fante, Akuapem und Abron (zur Verbreitung der Sprachen siehe <a href="https://commons.wikimedia.org/wiki/File:Niger-Kongo-Karte.png" title="Link in neuem Fenster oder Tab öffnen" target="_blank">Wikimedia Commons</a>, letzter Zugriff: 23.09.2024; vergleiche <a href="https://www.britannica.com/topic/Akan" title="Link in neuem Fenster oder Tab öffnen" target="_blank">Encyclopædia Britannica</a>, letzter Zugriff: 23.09.2024).</p>
+                    </dd>
+                </div>
+            </dl>
         </div>
-        <div>
-            <dt>Another sample term</dt>
-            <dd>TODO with more text. With more text. With more text. With more text. With more text. With more text. With more text. With more text. With more text. Slightly longer, but not too much.</dd>
-        </div>
-    </dl>
+    </mdlr:page.section>
     <!--
     <mdlr:molecule.empty illustration="search" message="{f:translate(key: 'templates.generic.results.empty', extensionName: 'chf_base')}" />
     -->
+
+
+
+
+    <mdlr:page.section id="main-pagination" variants="{0: 'toolbar', 1: 'ultrawide'}">
+
+        <mdlr:atom.heading text="{f:translate(key: 'templates.pagination', extensionName: 'chf_base')}" level="3" variants="{0: 'tacit'}" />
+
+        <mdlr:molecule.buttonRow.wrap areas="{0: 'slot-b', 1: 'align-center'}">
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.oagination.first', extensionName: 'chf_base')}" icon="first" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.oagination.previous', extensionName: 'chf_base')}" icon="previous" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="3" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="4" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="5" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.disabled variants="{0: 'unobtrusive'}" text="6" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="7" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="8" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'unobtrusive'}" text="9" hint="Umblättern" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.oagination.next', extensionName: 'chf_base')}" icon="next" />
+            </mdlr:molecule.buttonRow.item>
+
+            <mdlr:molecule.buttonRow.item>
+                <mdlr:atom.button.function function="" variants="{0: 'icon', 1: 'unobtrusive'}" text="{f:translate(key: 'templates.oagination.last', extensionName: 'chf_base')}" icon="last" />
+            </mdlr:molecule.buttonRow.item>
+
+        </mdlr:molecule.buttonRow.wrap>
+
+    </mdlr:page.section>
+
+
+
+
+
+
+    <f:render partial="About/About" arguments="{heading: '{f:translate(key: \'templates.about.index\', extensionName: \'chf_gloss\')}', titleSubtitle: '', description: 'Erklärungen für Fachbegriffe der Onomastik und der Linguistik, die im Digitalen Familiennamenwörterbuch Deutschlands genutzt werden, insebsondere in Bedeutungstexten.', authorshipRelation: '{0: \'{iri: \\\'a123\\\', forename: \\\'Max\\\', surname: \\\'Mustermann\\\', role: \\\'author\\\'}\', 1: \'{iri: \\\'a124\\\', forename: \\\'Meike\\\', surname: \\\'Musterfrau\\\', role: \\\'editor\\\'}\', 2: \'{iri: \\\'a125\\\', forename: \\\'Mira\\\', surname: \\\'Musterperson\\\', role: \\\'editor\\\'}\', 3: \'{iri: \\\'a126\\\', corporateName: \\\'Akademie der Wissenschaften und der Literatur Mainz\\\', role: \\\'publisher\\\'}\'}', iri: 'r3', licenseRelation: '{0: \'{iri: \\\'t13\\\', code: \\\'CC0 1.0\\\', text: \\\'Kein Urheberrechtsschutz\\\', role: \\\'metadata\\\'}\', 1: \'{iri: \\\'t14\\\', code: \\\'CC BY 4.0\\\', text: \\\'Namensnennung\\\', role: \\\'text\\\'}\'}', publication: 'Digitales Familiennamenwörterbuch Deutschlands', resource: 'Glossar', year: '2025', date: '24. Oktober 2025', dateIso: '2025-10-24', access: '6. November 2025', accessIso: '2025-11-06', revisionNumber: 2, revisionDate: '6. November 2025', revisionDateIso: '2025-11-06', extent: '{0: \'{text: \\\'10.zenodo.12345678\\\', type: \\\'doi\\\'}\'}', sameAs: '{0: \'{uri: \\\'http://sws.geonames.org/1234567\\\'}\', 1: \'{uri: \\\'http://sws.geonames.org/7654321\\\'}\'}', citationStyle: 'mla-author-date', serialisations: '{0: \'csv\', 1: \'json\', 2: \'rdfxml\', 3: \'turtle\', 4: \'jsonld\'}', language: 'Deutsch', apiPageUid: 30, apiInfoPageUid: 27}" />
+
 </html>

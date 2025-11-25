@@ -55,6 +55,13 @@
             <trans-unit id="plugin.glossary.description" resname="plugin.glossary.description">
                 <source>List and show brief definitions</source>
             </trans-unit>
+            <!-- Templates -->
+            <trans-unit id="templates.about.index" resname="templates.about.index">
+                <source>About this glossary</source>
+            </trans-unit>
+            <trans-unit id="templates.about.show" resname="templates.about.show">
+                <source>About this glossary entry</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

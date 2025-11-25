@@ -6,11 +6,11 @@ plugin.tx_chfgloss {
         200 = {$chf.templates.path}Templates/
     }
     partialRootPaths {
-        100 = EXT:chf_gloss/Resources/Private/Partials/
+        100 = EXT:chf_base/Resources/Private/PageView/Partials/
         200 = {$chf.templates.path}Partials/
     }
     layoutRootPaths {
-        100 = EXT:chf_gloss/Resources/Private/Layouts/
+        100 = EXT:chf_base/Resources/Private/PageView/Layouts/
         200 = {$chf.templates.path}Layouts/
     }
     defaultPid = auto

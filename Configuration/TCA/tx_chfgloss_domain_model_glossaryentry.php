@@ -22,7 +22,6 @@ return [
         'title'                    => 'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:object.glossaryEntry',
         'label'                    => 'term',
         'label_alt'                => 'type',
-        'label_alt_force'          => true,
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -165,6 +164,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'linkRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -329,6 +329,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'authorshipRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -367,6 +368,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'licenceRelation',
                                 'readOnly' => true,
                             ],
                         ],

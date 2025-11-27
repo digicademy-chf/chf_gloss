@@ -2,7 +2,7 @@
     "name": "digicademy/chf_gloss",
     "version": "2.0.0",
     "type": "typo3-cms-extension",
-    "description": "Provide glossaries for research data in TYPO3",
+    "description": "CHF Gloss - Provide glossaries for research data in TYPO3",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
@@ -31,11 +31,11 @@
         "Academic"
     ],
     "require": {
-        "typo3/cms-core": "^13",
-        "typo3/cms-extbase": "^13",
-        "typo3/cms-fluid": "^13",
-        "typo3/cms-fluid-styled-content": "^13",
-        "typo3/cms-rte-ckeditor": "^13",
+        "typo3/cms-core": "^14",
+        "typo3/cms-extbase": "^14",
+        "typo3/cms-fluid": "^14",
+        "typo3/cms-fluid-styled-content": "^14",
+        "typo3/cms-rte-ckeditor": "^14",
         "digicademy/chf_base": "^2"
     },
     "autoload": {

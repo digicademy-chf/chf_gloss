@@ -29,6 +29,7 @@ ExtensionUtility::registerPlugin(
     'tx-chfgloss-plugin-glossary',
     'heritage',
     'LLL:EXT:chf_gloss/Resources/Private/Language/locallang.xlf:plugin.glossary.description',
+    'FILE:EXT:chf_gloss/Configuration/FlexForms/PluginData.xml',
 );
 
 // Add data tab to plugin form
@@ -37,11 +38,4 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '--div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data,pi_flexform',
     'chfgloss_glossary',
     'after:subheader',
-);
-
-// Add form for plugin 'Glossary'
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:chf_gloss/Configuration/FlexForms/PluginData.xml',
-    'chfgloss_glossary',
 );

@@ -20,4 +20,5 @@ ExtensionUtility::configurePlugin(
         GlossaryController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
+    null,
 );

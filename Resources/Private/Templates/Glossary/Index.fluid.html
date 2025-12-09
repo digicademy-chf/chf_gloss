@@ -223,6 +223,23 @@
     </ul>-->
     <mdlr:page.section id="main-content" variants="{0: 'even', 1: 'ultrawide'}">
         <div class="mdlr-content">
+
+            <f:variable name="positionData">
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [8.2704513, 49.9765528]
+                    },
+                    "properties": {
+                        "name": "Academy of Sciences and Literature Mainz",
+                        "url": "https://www.adwmainz.de",
+                        "size": 5
+                    }
+                }
+            </f:variable>
+            <vis:map id="position" centerLatitude="8.2704513" centerLongitude="49.9765528" zoom="13" geoJson="{positionData}" />
+
             <dl>
                 <div>
                     <dt><f:link.action action="show" arguments="{glossaryEntry: 1}">Ablativ</f:link.action></dt>

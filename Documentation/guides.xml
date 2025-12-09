@@ -20,8 +20,8 @@
     />
     <project
         title="CHF Gloss"
-        version="0.6"
-        release="0.6.0"
+        version="2.0"
+        release="2.0.0"
         copyright="since 2023 by Jonatan Jalle Steller and CHF Gloss contributors"
     />
 </guides>
